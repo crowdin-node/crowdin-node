@@ -2,6 +2,7 @@ const assert = require('assert')
 const getSchema = require('./lib/get-schema')
 const getOperations = require('./lib/get-operations')
 const operate = require('./lib/operate')
+const _ = require('lodash')
 
 module.exports = function (opts = {}) {
   const defaults = {
@@ -19,7 +20,7 @@ module.exports = function (opts = {}) {
 
   // attach bound operations to the client object
   operations.forEach(operation => {
-    client[operation.name] = operate.bind(operation)
+    _.set(client, operation.operationId, operate.bind(operation))
   })
 
   return client

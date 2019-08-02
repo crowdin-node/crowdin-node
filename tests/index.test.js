@@ -1,4 +1,5 @@
 const { isPlainObject } = require('lodash')
+require('make-promises-safe')
 // const nock = require('nock')
 
 const Crowdin = require('..')
@@ -25,9 +26,20 @@ describe('client', () => {
     expect(typeof client.key).toBe('string')
   })
 
-  test.skip('getProjectDetails', async () => {
-    const details = await client.getProjectDetails('a_project')
-    console.log(details)
+  test('client.project.branches.getMany works', async () =>{
+    const result = await client.projects.branches.getMany('myProjectId')
+    expect(result.statusCode).toBe(200)
+  })
+
+  test.skip('client.projects.branches throws an error with invalid arguments', async () => {
+    try {
+      await client.projects.branches.getMany()
+    } catch (err){
+      expect(err).toEqual({
+        error: 'Foobar'
+      })
+    }
+
     //   expect(details).toBe()
   })
 })
