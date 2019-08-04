@@ -1,7 +1,8 @@
 {
-  "name": "crowdin",
+  "name": "crowdin-wrapper",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Node.js client for the v1 and v2 Crowdin APIs",
+  "repository": "https://github.com/aletrejo/crowdin-wrapper",
   "main": "index.js",
   "scripts": {
     "build": "script/build-docs.js",
@@ -9,7 +10,6 @@
     "test": "jest && standard",
     "lint": "standard --fix"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "got": "^9.6.0",
