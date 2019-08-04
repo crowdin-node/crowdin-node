@@ -1,136 +1,24 @@
-#  const operations = [
-#    {
-#      name: 'addFile',
-#      path: '/api/project/{project-identifier}/add-file?key={project-key}',
-#      verb: 'post'
-#    },
-#    {
-#      name: 'getProjectDetails',
-#      path: '/api/project/{projectIdentifier}/info',
-#      verb: 'post', 
-#      params: [
-#        {
-#          name: 'projectIdentifier',
-#          in: 'path',
-#          required: true
-#        },
-#        {
-#          name: 'key',
-#          in: 'query', 
-#          required: true
-#        }
-#      ]
-#    }
-#  ]
-
 openapi: 3.0.0
 info:
   title: 'Crowdin API v1'
-  description: "\nUnofficial OpenAPI schema for the v1 Crowdin API."
+  description: "(Unofficial) OpenAPI schema for the v1 Crowdin API."
 paths:
-  '/projects/{projectId}/branches':
-    get:
-      tags:
-        - Branches
-      summary: 'List project branches'
-      operationId: api.projects.branches.getMany
-      parameters:
-        -
-          $ref: '#/components/parameters/ProjectId'
-        -
-          name: name
-          in: query
-          description: 'Filter branch by name.'
-          schema:
-            type: string
-        -
-          $ref: '#/components/parameters/PaginationLimit'
-        -
-          $ref: '#/components/parameters/PaginationOffset'
-      responses:
-        '200':
-          description: 'List project branches'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BranchCollectionResource'
-        '400':
-          description: 'Request parameters are invalid'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorCollectionResource'
-        '404':
-          description: 'Project with the specified id was not found'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
-        '503':
-          description: 'Service Unavailable'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
+  
+  '/api/project/{project-identifier}/add-file':
     post:
-      tags:
-        - Branches
-      summary: 'Create a branch'
-      operationId: api.projects.branches.createOne
+      summary: 'Add a file to your project.'
+      operationId: api.projects.files.add
+  
+  '/api/project/{projectIdentifier}/info':
+    post:
+      summary: 'Get project details.'
+      operationId: api.projects.getDetails
       parameters:
         -
-          $ref: '#/components/parameters/ProjectId'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BranchCreateForm'
-      responses:
-        '201':
-          description: 'Branch created successfully'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BranchResource'
-        '400':
-          description: 'Bad request parameters'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorCollectionResource'
-        '404':
-          description: 'Project with the specified id was not found'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
-        '503':
-          description: 'Service Unavailable'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionResource'
+          name: projectIdentifier
+          in: path
+          required: true
+        -
+          name: key
+          in: query
+          required: true
