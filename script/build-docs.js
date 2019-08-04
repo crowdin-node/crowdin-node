@@ -19,8 +19,9 @@ const template = `
 {{/each}}
 
 {{#each operations}}
-<a id="{{slug}}"></a>
-## {{fullSignature}}
+<a id="{{slug}}">
+  <h2>{{fullSignature}}</h2>
+</a>
 
 > {{summary}}
 
