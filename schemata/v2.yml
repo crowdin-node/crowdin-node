@@ -1696,7 +1696,7 @@ paths:
       tags:
         - Pre-Translation
       summary: 'Pre-translate project files'
-      operationId: api.projects.pre-translates.preTranslate
+      operationId: api.projects.preTranslates.preTranslate
       parameters:
         -
           $ref: '#/components/parameters/ProjectId'
@@ -1747,7 +1747,7 @@ paths:
       tags:
         - Pre-Translation
       summary: 'Get status of pre-translation'
-      operationId: api.projects.pre-translates.getTranslation
+      operationId: api.projects.preTranslates.getTranslation
       parameters:
         -
           $ref: '#/components/parameters/ProjectId'
@@ -2285,7 +2285,7 @@ paths:
       tags:
         - 'Translation Quality Assurance'
       summary: 'List QA check statistics'
-      operationId: 'Crowdin\Api\Rest\QaCheck\Controller\Project\QaCheckCollectionController::get'
+      operationId: api.projects.getQACheck
       parameters:
         -
           $ref: '#/components/parameters/ProjectId'
@@ -3363,7 +3363,7 @@ paths:
       tags:
         - Strings
       summary: 'List project strings'
-      operationId: 'Crowdin\Api\Rest\String\Controller\Project\StringCollectionController::get'
+      operationId: api.projects.pseudo.listProjectStrings
       parameters:
         -
           $ref: '#/components/parameters/ProjectId'
