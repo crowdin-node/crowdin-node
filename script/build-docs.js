@@ -19,7 +19,8 @@ const template = `
 {{/each}}
 
 {{#each operations}}
-## {{fullSignature}}<a id="{{slug}}"></a>
+<a id="{{slug}}"></a>
+## {{fullSignature}}
 
 > {{summary}}
 
