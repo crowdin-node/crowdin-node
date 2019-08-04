@@ -2,7 +2,7 @@
 
 A Node.js client for the 
 [v1](https://support.crowdin.com/api/api-integration-setup/) and 
-[v2]((https://support.crowdin.com/enterprise/api/)) Crowdin APIs
+[v2](https://support.crowdin.com/enterprise/api/) Crowdin APIs
 
 ## Installation
 
