@@ -38,8 +38,8 @@ that returns a Crowdin client:
   - `schemaVersion` String (optional) - Çan be `v1` or `v2`. Defaults to `v2`.
   - `hostname` String (optional) - Defaults to `api.crowdin.com`
 
-The returned client object has deeply nested operations attached like `crowdin.projects.files.getMany`
-and `crowdin.projects.branches.languages.progress.getMany`. 
+The returned client is an object of deeply nested API operations like 
+`crowdin.projects.files.getMany` and `crowdin.projects.branches.languages.progress.getMany`. 
 Each of these operations returns a Promise to a [got](https://ghub.io/got) response object. 
 
-See the full list of operations at [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md).
+See [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) for reference.
