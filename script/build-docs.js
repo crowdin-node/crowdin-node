@@ -15,7 +15,7 @@ const template = `
 ## Operations
 
 {{#each operations}}
-- [{{fullSignature}}]({{slug}})
+- [{{fullSignature}}](#{{slug}})
 {{/each}}
 
 {{#each operations}}
