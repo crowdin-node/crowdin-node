@@ -1,21 +1,53 @@
-// require dotenv 
 const { isPlainObject } = require('lodash')
-const client = require('..')(
-  { key: 'mykey' }
-)
+require('make-promises-safe')
+const nock = require('nock')
 
-describe('crowdin client', () => {
-  test('it is an object', async () => {
+const Crowdin = require('..')
+const client = Crowdin({ key: 'mykey' })
+
+// disallow all network access
+nock.disableNetConnect()
+
+describe('module', () => {
+  test('exports a function for instantiating a client', () => {
+    expect(typeof Crowdin).toBe('function')
+  })
+})
+
+describe('client', () => {
+  test('is an object', async () => {
     expect(isPlainObject(client)).toBe(true)
   })
 
-  test('getProjectDetails', async () => {
-    const details = await client.getProjectDetails('a_project')
-    console.log(details)
-    //   expect(details).toBe()
+  test('requires an API key', () => {
+    expect(() => {
+      Crowdin()
+    }).toThrow('Missing required option: `key`')
   })
 
-  test('has key', async () => {
-    expect(typeof client.key).toBe('string')
+  test('attaches key to client object', async () => {
+    expect(typeof client.config.key).toBe('string')
+  })
+
+  test('client.project.branches.getMany() works', async () => {
+    const mock = nock('https://api.crowdin.com')
+      .get('/projects/myProjectId/branches')
+      .query({ key: 'mykey' })
+      .reply(200)
+
+    const result = await client.projects.branches.getMany('myProjectId')
+
+    expect(mock.isDone()).toBe(true)
+    expect(result.statusCode).toBe(200)
+  })
+
+  test.skip('client.projects.branches.getMany() throws an error with invalid arguments', async () => {
+    try {
+      await client.projects.branches.getMany()
+    } catch (err) {
+      expect(err).toEqual({
+        error: 'Foobar'
+      })
+    }
   })
 })

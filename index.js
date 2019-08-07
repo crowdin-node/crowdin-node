@@ -1,47 +1,32 @@
-const got = require('got')
 const assert = require('assert')
-
-const operations = [
-  {
-    name: 'addFile',
-    path: '/api/project/{project-identifier}/add-file?key={project-key}',
-    verb: 'post'
-  },
-  {
-    name: 'getProjectDetails',
-    path: '/api/project/{projectIdentifier}/info',
-    verb: 'post', 
-    params: [
-      {
-        name: 'projectIdentifier',
-        in: 'path',
-        required: true
-      },
-      {
-        name: 'key',
-        in: 'query', 
-        required: true
-      }
-    ]
-  }
-]
-
-const operate = async function operate () {
-  console.log('Hello operator!')
-  console.log(this)
-  // validate arguments object
-  // construct a path
-  // make a request with request path + verb
-  // return data
-}
+const getSchema = require('./lib/get-schema')
+const getOperations = require('./lib/get-operations')
+const operate = require('./lib/operate')
+const _ = require('lodash')
 
 module.exports = function (opts = {}) {
-  // set a default host name
-  assert(opts.key && opts.key.length, 'Missing required key.')
-  const client = {}
-  client.key = opts.key
+  const defaults = {
+    schemaVersion: 'v2',
+    hostname: 'api.crowdin.com',
+    key: null
+  }
+
+  // attach options to the client object
+  const client = {
+    config: Object.assign({}, defaults, opts)
+  }
+
+  assert(client.config.key, 'Missing required option: `key`')
+
+  // Load the requested schema version and generate a list of operations
+  const schema = getSchema(client.config.schemaVersion)
+  const operations = getOperations(schema)
+
+  // attach bound operations to the client object
   operations.forEach(operation => {
-    client[operation.name] = operate.bind(operation)
+    operation.clientConfig = client.config
+    _.set(client, operation.operationId, operate.bind(operation))
   })
+
   return client
 }
