@@ -8,7 +8,8 @@
     "build": "script/build-docs.js",
     "pretest": "npm run build",
     "test": "jest && standard",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "example": "node examples/v1.js"
   },
   "license": "ISC",
   "dependencies": {

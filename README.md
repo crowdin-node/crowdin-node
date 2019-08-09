@@ -26,6 +26,15 @@ const crowdin = require('crowdin-wrapper')({
 const projects = await crowdin.projects.getMany()
 ```
 
+Or clone the repo and run an example script:
+
+```sh
+git clone https://github.com/aletrejo/crowdin-wrapper
+cd crowdin-wrapper
+npm install
+npm run example
+```
+
 ## API
 
 This module exports a single [factory function](https://www.youtube.com/watch?v=ImwrezYhw4w) 
