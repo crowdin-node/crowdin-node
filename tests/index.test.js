@@ -32,7 +32,7 @@ describe('client', () => {
   test('client.project.branches.getMany() works', async () => {
     const mock = nock('https://api.crowdin.com')
       .get('/projects/myProjectId/branches')
-      .query({ key: 'mykey' })
+      .query({ json: true, key: 'mykey' })
       .reply(200)
 
     const result = await client.projects.branches.getMany('myProjectId')
