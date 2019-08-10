@@ -2,12 +2,16 @@ openapi: 3.0.0
 info:
   title: 'Crowdin API v1'
   description: "(Unofficial) OpenAPI schema for the v1 Crowdin API."
+  version: ''
 paths:
   
   '/api/project/{project-identifier}/add-file':
     post:
       summary: 'Add a file to your project.'
       operationId: api.projects.files.add
+      responses:
+        '200':
+          description: 'Added a file to your project.'
   
   '/api/project/{projectIdentifier}/info':
     post:
@@ -22,3 +26,6 @@ paths:
           name: key
           in: query
           required: true
+      responses:
+        '200':
+          description: 'Got project details.'

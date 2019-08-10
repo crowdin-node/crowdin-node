@@ -3,5 +3,6 @@
 module.exports = {
   testMatch: [
     '**/tests/*.js'
-  ]
+  ],
+  setupFilesAfterEnv: ['jest-expect-message']
 }
