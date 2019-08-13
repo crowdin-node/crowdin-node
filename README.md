@@ -1,24 +1,21 @@
-# Crowdin API Wrapper
+# Crowdin API Client
 
 A Node.js client for the 
 [v1](https://support.crowdin.com/api/api-integration-setup/) and 
 [v2](https://support.crowdin.com/enterprise/api/) Crowdin APIs
 
+🚧 This client is a work in progress, and not ready for production use. Feel free to try it out and [open issues](https://github.com/crowdin-node/crowdin-node/issues). 🚧
+
 ## Installation
 
-🚧 This is a work in progress. Not ready for general use! 🚧
-
-This module is not yet published to npm. For now, you can install it directly
-form the GitHub repo:
-
 ```sh
-npm install aletrejo/crowdin-wrapper
+npm install crowdin
 ```
 
 ## Basic Usage
 
 ```js
-const crowdin = require('crowdin-wrapper')({
+const crowdin = require('crowdin')({
   key: process.env.CROWDIN_KEY,
   schemaVersion: 'v2'
 })
@@ -52,3 +49,7 @@ The returned client is an object of deeply nested API operations like
 Each of these operations returns a Promise to a [got](https://ghub.io/got) response object. 
 
 See [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) for reference.
+
+## Thanks
+
+Special thanks to :sparkles:[Paul Le Cam](https://www.npmjs.com/~paul_lecam):sparkles: for donating the `crowdin` npm package name. 
