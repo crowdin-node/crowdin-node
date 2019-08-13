@@ -8,7 +8,8 @@
     "build": "script/build-docs.js",
     "pretest": "npm run build",
     "test": "jest && standard",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "example": "node examples/v1.js"
   },
   "license": "ISC",
   "dependencies": {
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "change-case": "^3.1.0",
+    "dotenv-safe": "^6.1.0",
     "github-slugger": "^1.2.1",
     "handlebars": "^4.1.2",
     "jest": "^24.8.0",
