@@ -43,4 +43,4 @@ See [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) for reference.
 
 ## Thanks
 
-Special thanks to :sparkles:[Paul Le Cam](https://www.npmjs.com/~paul_lecam):sparkles: for donation the `crowdin` npm package name. 
+Special thanks to :sparkles:[Paul Le Cam](https://www.npmjs.com/~paul_lecam):sparkles: for donating the `crowdin` npm package name. 
