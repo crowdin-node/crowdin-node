@@ -1,8 +1,8 @@
 {
-  "name": "crowdin-wrapper",
-  "version": "1.0.0",
+  "name": "crowdin",
+  "version": "2.0.0",
   "description": "A Node.js client for the v1 and v2 Crowdin APIs",
-  "repository": "https://github.com/aletrejo/crowdin-wrapper",
+  "repository": "https://github.com/crowdin-node/crowdin-node",
   "main": "index.js",
   "scripts": {
     "build": "script/build-docs.js",
