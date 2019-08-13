@@ -1,6 +1,6 @@
 {
   "name": "crowdin",
-  "version": "2.0.0",
+  "version": "0.0.0-development",
   "description": "A Node.js client for the v1 and v2 Crowdin APIs",
   "repository": "https://github.com/crowdin-node/crowdin-node",
   "main": "index.js",
@@ -9,7 +9,8 @@
     "pretest": "npm run build",
     "test": "jest && standard",
     "lint": "standard --fix",
-    "example": "node examples/v1.js"
+    "example": "node examples/v1.js",
+    "semantic-release": "semantic-release"
   },
   "license": "ISC",
   "dependencies": {
@@ -36,6 +37,7 @@
     "make-promises-safe": "^5.0.0",
     "nock": "^10.0.6",
     "openapi-schema-validator": "^3.0.3",
-    "standard": "^13.1.0"
+    "standard": "^13.1.0",
+    "semantic-release": "^15.13.21"
   }
 }
