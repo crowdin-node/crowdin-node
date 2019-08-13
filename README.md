@@ -40,3 +40,7 @@ The returned client is an object of deeply nested API operations like
 Each of these operations returns a Promise to a [got](https://ghub.io/got) response object. 
 
 See [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) for reference.
+
+## Thanks
+
+Special thanks to :sparkles:[Paul Le Cam](https://www.npmjs.com/~paul_lecam):sparkles: for donation the `crowdin` npm package name. 
