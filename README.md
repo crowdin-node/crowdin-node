@@ -4,7 +4,7 @@ A Node.js client for the
 [v1](https://support.crowdin.com/api/api-integration-setup/) and 
 [v2](https://support.crowdin.com/enterprise/api/) Crowdin APIs
 
-🚧 This client is a work in progress, and not ready for production use. Feel free to try it out and [open issues](https://github.com/crowdin-node/crowdin-node/issues). 🚧
+🚧 This is still a work in progress. To see what remains to be implemented, check out the [open issues](https://github.com/crowdin-node/crowdin-node/issues). 🚧
 
 ## Installation
 
