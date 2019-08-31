@@ -15,12 +15,12 @@ async function main () {
 
   const result = await client.projects.files.add(CROWDIN_PROJECT_ID, {
     files: {
-      'github/some-owner/some-repo/README.md': 'I am the README.',
-      'github/some-owner/some-repo/index.js': 'I am index.js'
+      'README.md': 'I am the README.',
+      'config.yml': 'is_yaml: true'
     }
   })
 
-  console.log(result)
+  console.log(result.body)
 }
 
 main()
