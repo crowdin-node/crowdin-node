@@ -23,13 +23,21 @@ const crowdin = require('crowdin')({
 const projects = await crowdin.projects.getMany()
 ```
 
-Or clone the repo and run an example script:
+## Examples
+
+To try out some examples, clone the repo and install dependencies:
 
 ```sh
 git clone https://github.com/aletrejo/crowdin-wrapper
 cd crowdin-wrapper
 npm install
-npm run example
+```
+
+Then you can run the examples:
+
+```js
+node examples/v1-get-project-details.js
+node examples/v2-add-files.js
 ```
 
 ## API
