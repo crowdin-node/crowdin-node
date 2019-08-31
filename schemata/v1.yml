@@ -5,18 +5,41 @@ info:
   version: ''
 paths:
   
-  '/api/project/{project-identifier}/add-file':
+  '/api/project/{projectIdentifier}/add-file':
     post:
-      summary: 'Add a file to your project.'
+      summary: 'Add files to your project.'
       operationId: api.projects.files.add
+      externalDocs:
+        url: 'https://support.crowdin.com/api/add-file/'
       responses:
         '200':
           description: 'Added a file to your project.'
-  
+      parameters:
+        -
+          name: projectIdentifier
+          in: path
+          required: true
+        -
+          name: key
+          in: query
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - files
+              properties:
+                files:
+                  description: 'Filenames to include'
+                  type: object
+
   '/api/project/{projectIdentifier}/info':
     post:
       summary: 'Get project details.'
       operationId: api.projects.getDetails
+      externalDocs:
+        url: 'https://support.crowdin.com/api/info/'
       parameters:
         -
           name: projectIdentifier
