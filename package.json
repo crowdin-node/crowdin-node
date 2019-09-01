@@ -1,6 +1,6 @@
 {
   "name": "crowdin",
-  "version": "3.0.0",
+  "version": "0.0.0-development",
   "description": "A Node.js client for the v1 and v2 Crowdin APIs",
   "repository": "https://github.com/crowdin-node/crowdin-node",
   "main": "index.js",
