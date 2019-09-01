@@ -1,4 +1,5 @@
 # Crowdin API Client
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 A Node.js client for the 
 [v1](https://support.crowdin.com/api/api-integration-setup/) and 
@@ -61,3 +62,18 @@ See [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) for reference.
 ## Thanks
 
 Special thanks to :sparkles:[Paul Le Cam](https://www.npmjs.com/~paul_lecam):sparkles: for donating the `crowdin` npm package name. 
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/aletrejo"><img src="https://avatars1.githubusercontent.com/u/15284993?v=4" width="100px;" alt="Alejandra Trejo"/><br /><sub><b>Alejandra Trejo</b></sub></a><br /><a href="https://github.com/crowdin-node/crowdin-node/commits?author=aletrejo" title="Code">💻</a> <a href="https://github.com/crowdin-node/crowdin-node/commits?author=aletrejo" title="Documentation">📖</a> <a href="https://github.com/crowdin-node/crowdin-node/commits?author=aletrejo" title="Tests">⚠️</a> <a href="#review-aletrejo" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
