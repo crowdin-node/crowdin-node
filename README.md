@@ -1,5 +1,5 @@
 # Crowdin API Client
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 A Node.js client for the 
 [v1](https://support.crowdin.com/api/api-integration-setup/) and 
@@ -71,6 +71,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/aletrejo"><img src="https://avatars1.githubusercontent.com/u/15284993?v=4" width="100px;" alt="Alejandra Trejo"/><br /><sub><b>Alejandra Trejo</b></sub></a><br /><a href="https://github.com/crowdin-node/crowdin-node/commits?author=aletrejo" title="Code">💻</a> <a href="https://github.com/crowdin-node/crowdin-node/commits?author=aletrejo" title="Documentation">📖</a> <a href="https://github.com/crowdin-node/crowdin-node/commits?author=aletrejo" title="Tests">⚠️</a> <a href="#review-aletrejo" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="http://zeke.sikelianos.com"><img src="https://avatars1.githubusercontent.com/u/2289?v=4" width="100px;" alt="Zeke Sikelianos"/><br /><sub><b>Zeke Sikelianos</b></sub></a><br /><a href="https://github.com/crowdin-node/crowdin-node/commits?author=zeke" title="Documentation">📖</a> <a href="#design-zeke" title="Design">🎨</a> <a href="#ideas-zeke" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
