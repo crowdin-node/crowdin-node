@@ -12,15 +12,20 @@ async function main () {
     schemaVersion: 'v1',
     key: CROWDIN_API_KEY
   })
+  
+  // directory must be created before files can be added.
+  await client.projects.directories.add(CROWDIN_PROJECT_ID, {name: 'github'})
+  await client.projects.directories.add(CROWDIN_PROJECT_ID, {name: 'github/some-owner'})
+  await client.projects.directories.add(CROWDIN_PROJECT_ID, {name: 'github/some-owner/some-repo'})
 
-  const result = await client.projects.files.add(CROWDIN_PROJECT_ID, {
+  const addFilesResult = await client.projects.files.add(CROWDIN_PROJECT_ID, {
     files: {
-      'README.md': 'I am the README.',
-      'config.yml': 'is_yaml: true'
+      'github/some-owner/some-repo/README.md': 'I am the README.',
+      'github/some-owner/some-repo/config.yml': 'is_yaml: true'
     }
   })
 
-  console.log(result.body)
+  // console.log(addFilesResult.body)
 }
 
 main()
