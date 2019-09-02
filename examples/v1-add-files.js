@@ -12,11 +12,11 @@ async function main () {
     schemaVersion: 'v1',
     key: CROWDIN_API_KEY
   })
-  
+
   // directory must be created before files can be added.
-  await client.projects.directories.add(CROWDIN_PROJECT_ID, {name: 'github'})
-  await client.projects.directories.add(CROWDIN_PROJECT_ID, {name: 'github/some-owner'})
-  await client.projects.directories.add(CROWDIN_PROJECT_ID, {name: 'github/some-owner/some-repo'})
+  await client.projects.directories.add(CROWDIN_PROJECT_ID, { name: 'github' })
+  await client.projects.directories.add(CROWDIN_PROJECT_ID, { name: 'github/some-owner' })
+  await client.projects.directories.add(CROWDIN_PROJECT_ID, { name: 'github/some-owner/some-repo' })
 
   const addFilesResult = await client.projects.files.add(CROWDIN_PROJECT_ID, {
     files: {
@@ -25,7 +25,7 @@ async function main () {
     }
   })
 
-  // console.log(addFilesResult.body)
+  console.log(addFilesResult.body)
 }
 
 main()
