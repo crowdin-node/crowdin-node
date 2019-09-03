@@ -4,7 +4,31 @@ info:
   description: "(Unofficial) OpenAPI schema for the v1 Crowdin API."
   version: ''
 paths:
-  
+
+  '/api/project/{projectIdentifier}/add-directory':
+    post:
+      summary: 'Add a directory to your project.' 
+      operationId: api.projects.directories.add
+      externalDocs:
+        url: 'https://support.crowdin.com/api/add-directory/'
+      responses:
+        '200':
+          description: 'Added a directory to your project.'
+      parameters:
+        -
+          name: projectIdentifier
+          in: path
+          required: true
+        -
+          name: key
+          in: query
+          required: true
+        -
+          name: name
+          description: Directory name (with path if nested directory should be created).
+          in: query
+          required: true
+
   '/api/project/{projectIdentifier}/add-file':
     post:
       summary: 'Add files to your project.'
