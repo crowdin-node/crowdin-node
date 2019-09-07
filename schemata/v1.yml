@@ -32,15 +32,45 @@ paths:
           name: recursive
           description: Create directories recursively if a nested name is provided. Default is false
           in: query
+
   '/api/project/{projectIdentifier}/add-file':
     post:
-      summary: 'Add files to your project.'
+      summary: 'Add one or many files to your project.'
       operationId: api.projects.files.add
       externalDocs:
         url: 'https://support.crowdin.com/api/add-file/'
       responses:
         '200':
-          description: 'Added a file to your project.'
+          description: 'Added file(s) to your project.'
+      parameters:
+        -
+          name: projectIdentifier
+          in: path
+          required: true
+        -
+          name: key
+          in: query
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - files
+              properties:
+                files:
+                  description: 'Filenames to include'
+                  type: object
+
+  '/api/project/{projectIdentifier}/update-file':
+    post:
+      summary: 'Update one or many files in your project.'
+      operationId: api.projects.files.update
+      externalDocs:
+        url: 'https://support.crowdin.com/api/update-file/'
+      responses:
+        '200':
+          description: 'Updated file(s) in your project.'
       parameters:
         -
           name: projectIdentifier
