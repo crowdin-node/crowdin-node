@@ -35,9 +35,9 @@
     "jest": "^24.8.0",
     "jest-expect-message": "^1.0.2",
     "make-promises-safe": "^5.0.0",
-    "nock": "^10.0.6",
+    "nock": "^11.3.3",
     "openapi-schema-validator": "^3.0.3",
-    "standard": "^13.1.0",
-    "semantic-release": "^15.13.21"
+    "semantic-release": "^15.13.21",
+    "standard": "^13.1.0"
   }
 }

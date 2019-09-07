@@ -28,7 +28,10 @@ paths:
           description: Directory name (with path if nested directory should be created).
           in: query
           required: true
-
+        -
+          name: recursive
+          description: Create directories recursively if a nested name is provided. Default is false
+          in: query
   '/api/project/{projectIdentifier}/add-file':
     post:
       summary: 'Add files to your project.'
