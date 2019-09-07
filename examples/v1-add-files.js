@@ -24,6 +24,15 @@ async function main () {
   })
 
   console.log(addFilesResult.body)
+
+  const updateFilesResult = await client.projects.files.update(CROWDIN_PROJECT_ID, {
+    files: {
+      'github/some-owner/some-repo/README.md': 'I am the README (STILL).',
+      'github/some-owner/some-repo/config.yml': 'is_still_yaml: true'
+    }
+  })
+
+  console.log(updateFilesResult.body)
 }
 
 main()
