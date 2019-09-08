@@ -33,6 +33,30 @@ paths:
           description: Create directories recursively if a nested name is provided. Default is false
           in: query
 
+  '/api/project/{projectIdentifier}/delete-directory':
+    post:
+      summary: Delete a Crowdin project directory. All nested files and directories will be deleted too.
+      operationId: api.projects.directories.delete
+      externalDocs:
+        url: 'https://support.crowdin.com/api/delete-directory/'
+      responses:
+        '200':
+          description: 'Deleted directory.'
+      parameters:
+        -
+          name: projectIdentifier
+          in: path
+          required: true
+        -
+          name: name
+          in: query
+          required: true
+          description: Path to the directory to delete
+        -
+          name: branch
+          in: query
+          description: Name of the related version branch.
+
   '/api/project/{projectIdentifier}/add-file':
     post:
       summary: 'Add one or many files to your project.'

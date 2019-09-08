@@ -13,9 +13,17 @@ async function main () {
     key: CROWDIN_API_KEY
   })
 
+  await client.projects.directories.delete(projectId, {
+    name: 'github'
+  }).catch(error => {
+    console.log('unable to delete github directory; maybe it did not exist')
+    console.trace(error)
+  })
+
   // directory must be created before files can be added
   await client.projects.directories.add(projectId, {
-    name: 'github/some-owner/some-repo', recursive: true
+    name: 'github/some-owner/some-repo',
+    recursive: true
   })
 
   const addFilesResult = await client.projects.files.add(projectId, {
