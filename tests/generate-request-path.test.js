@@ -4,7 +4,7 @@ describe('generateRequestPath', () => {
   test('generates a request path', () => {
     const operation = {
       requestPath: '/animals/{animal}/parts/{part}',
-      pathParamNames: ['animal', 'part']
+      validPathParams: ['animal', 'part']
     }
     const args = ['lizard', 'tail']
     const result = generateRequestPath(operation, args)

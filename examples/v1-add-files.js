@@ -2,10 +2,10 @@
 require('dotenv-safe').config()
 
 const assert = require('assert')
-const { CROWDIN_API_KEY, CROWDIN_PROJECT_ID } = process.env
+const { CROWDIN_API_KEY, CROWDIN_PROJECT_ID: projectId } = process.env
 
 assert(CROWDIN_API_KEY, 'Create a .env file and set CROWDIN_API_KEY')
-assert(CROWDIN_PROJECT_ID, 'Create a .env file and set CROWDIN_PROJECT_ID')
+assert(projectId, 'Create a .env file and set CROWDIN_PROJECT_ID')
 
 async function main () {
   const client = require('..')({
@@ -13,10 +13,20 @@ async function main () {
     key: CROWDIN_API_KEY
   })
 
-  // directory must be created before files can be added
-  await client.projects.directories.add(CROWDIN_PROJECT_ID, { name: 'github/some-owner/some-repo', recursive: true })
+  await client.projects.directories.delete(projectId, {
+    name: 'github'
+  }).catch(error => {
+    console.log('unable to delete github directory; maybe it did not exist')
+    console.trace(error)
+  })
 
-  const addFilesResult = await client.projects.files.add(CROWDIN_PROJECT_ID, {
+  // directory must be created before files can be added
+  await client.projects.directories.add(projectId, {
+    name: 'github/some-owner/some-repo',
+    recursive: true
+  })
+
+  const addFilesResult = await client.projects.files.add(projectId, {
     files: {
       'github/some-owner/some-repo/README.md': 'I am the README.',
       'github/some-owner/some-repo/config.yml': 'is_yaml: true'
@@ -25,7 +35,7 @@ async function main () {
 
   console.log(addFilesResult.body)
 
-  const updateFilesResult = await client.projects.files.update(CROWDIN_PROJECT_ID, {
+  const updateFilesResult = await client.projects.files.update(projectId, {
     files: {
       'github/some-owner/some-repo/README.md': 'I am the README (STILL).',
       'github/some-owner/some-repo/config.yml': 'is_still_yaml: true'
@@ -33,6 +43,14 @@ async function main () {
   })
 
   console.log(updateFilesResult.body)
+
+  const exportFilesResult = await client.projects.files.export(projectId, {
+    file: 'github/some-owner/some-repo/README.md',
+    language: 'fr',
+    json: false
+  })
+
+  console.log(exportFilesResult.body)
 }
 
 main()

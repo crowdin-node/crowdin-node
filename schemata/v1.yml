@@ -33,6 +33,30 @@ paths:
           description: Create directories recursively if a nested name is provided. Default is false
           in: query
 
+  '/api/project/{projectIdentifier}/delete-directory':
+    post:
+      summary: Delete a Crowdin project directory. All nested files and directories will be deleted too.
+      operationId: api.projects.directories.delete
+      externalDocs:
+        url: 'https://support.crowdin.com/api/delete-directory/'
+      responses:
+        '200':
+          description: 'Deleted directory.'
+      parameters:
+        -
+          name: projectIdentifier
+          in: path
+          required: true
+        -
+          name: name
+          in: query
+          required: true
+          description: Path to the directory to delete
+        -
+          name: branch
+          in: query
+          description: Name of the related version branch.
+
   '/api/project/{projectIdentifier}/add-file':
     post:
       summary: 'Add one or many files to your project.'
@@ -90,6 +114,39 @@ paths:
                 files:
                   description: 'Filenames to include'
                   type: object
+
+  '/api/project/{projectIdentifier}/export-file':
+    get:
+      summary: 'Export a single translated file from your project.'
+      operationId: api.projects.files.export
+      externalDocs:
+        url: 'https://support.crowdin.com/api/export-file/'
+      responses:
+        '200':
+          description: 'Exported file.'
+      parameters:
+        -
+          name: projectIdentifier
+          in: path
+          required: true
+        -
+          name: file
+          in: query
+          required: true
+          description: The path to the file that should be exported from the project.
+        -
+          name: language
+          in: query
+          required: true
+          description: "Crowdin language code. See https://support.crowdin.com/api/language-codes/"
+        -
+          name: branch
+          in: query
+          description: "The name of the related version branch. See https://support.crowdin.com/versions-management/"
+        -
+          name: format
+          in: query
+          description: "Specify `xliff` to export file in the XLIFF file format."
 
   '/api/project/{projectIdentifier}/info':
     post:
