@@ -57,6 +57,6 @@ function tableize (params) {
   const rows = params.map(param => {
     return headings.map(heading => param[heading])
   })
-  
+
   return markdownTable([headings].concat(rows))
 }
