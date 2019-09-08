@@ -123,17 +123,6 @@ paths:
           name: format
           in: query
           description: "Specify `xliff` to export file in the XLIFF file format."
-      requestBody:
-        content:
-          application/json:
-            schema:
-              required:
-                - files
-              properties:
-                files:
-                  description: 'Filenames to include'
-                  type: object
-
 
   '/api/project/{projectIdentifier}/info':
     post:
