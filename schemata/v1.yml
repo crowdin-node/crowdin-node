@@ -5,7 +5,7 @@ info:
   version: ''
 paths:
 
-  '/api/project/{projectIdentifier}/add-directory':
+  '/api/project/{project}/add-directory':
     post:
       summary: 'Add a directory to your project.' 
       operationId: api.projects.directories.add
@@ -16,7 +16,7 @@ paths:
           description: 'Added a directory to your project.'
       parameters:
         -
-          name: projectIdentifier
+          name: project
           in: path
           required: true
         -
@@ -33,7 +33,7 @@ paths:
           description: Create directories recursively if a nested name is provided. Default is false
           in: query
 
-  '/api/project/{projectIdentifier}/delete-directory':
+  '/api/project/{project}/delete-directory':
     post:
       summary: Delete a Crowdin project directory. All nested files and directories will be deleted too.
       operationId: api.projects.directories.delete
@@ -44,7 +44,7 @@ paths:
           description: 'Deleted directory.'
       parameters:
         -
-          name: projectIdentifier
+          name: project
           in: path
           required: true
         -
@@ -57,7 +57,7 @@ paths:
           in: query
           description: Name of the related version branch.
 
-  '/api/project/{projectIdentifier}/add-file':
+  '/api/project/{project}/add-file':
     post:
       summary: 'Add one or many files to your project.'
       operationId: api.projects.files.add
@@ -68,7 +68,7 @@ paths:
           description: 'Added file(s) to your project.'
       parameters:
         -
-          name: projectIdentifier
+          name: project
           in: path
           required: true
         -
@@ -86,7 +86,7 @@ paths:
                   description: 'Filenames to include'
                   type: object
 
-  '/api/project/{projectIdentifier}/update-file':
+  '/api/project/{project}/update-file':
     post:
       summary: 'Update one or many files in your project.'
       operationId: api.projects.files.update
@@ -97,7 +97,7 @@ paths:
           description: 'Updated file(s) in your project.'
       parameters:
         -
-          name: projectIdentifier
+          name: project
           in: path
           required: true
         -
@@ -115,7 +115,7 @@ paths:
                   description: 'Filenames to include'
                   type: object
 
-  '/api/project/{projectIdentifier}/export-file':
+  '/api/project/{project}/export-file':
     get:
       summary: 'Export a single translated file from your project.'
       operationId: api.projects.files.export
@@ -126,7 +126,7 @@ paths:
           description: 'Exported file.'
       parameters:
         -
-          name: projectIdentifier
+          name: project
           in: path
           required: true
         -
@@ -148,7 +148,7 @@ paths:
           in: query
           description: "Specify `xliff` to export file in the XLIFF file format."
 
-  '/api/project/{projectIdentifier}/info':
+  '/api/project/{project}/info':
     post:
       summary: 'Get project details.'
       operationId: api.projects.getDetails
@@ -156,7 +156,7 @@ paths:
         url: 'https://support.crowdin.com/api/info/'
       parameters:
         -
-          name: projectIdentifier
+          name: project
           in: path
           required: true
         -
