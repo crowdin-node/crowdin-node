@@ -13,13 +13,12 @@
   },
   "license": "ISC",
   "dependencies": {
+    "change-case": "^3.1.0",
     "form-data": "^2.5.1",
     "got": "^9.6.0",
-    "install": "^0.13.0",
     "js-yaml": "^3.13.1",
     "json-schema-deref-sync": "^0.10.1",
     "lodash": "^4.17.15",
-    "npm": "^6.10.2",
     "pupa": "^2.0.1"
   },
   "standard": {
@@ -28,7 +27,6 @@
     ]
   },
   "devDependencies": {
-    "change-case": "^3.1.0",
     "dotenv-safe": "^6.1.0",
     "github-slugger": "^1.2.1",
     "handlebars": "^4.1.2",
