@@ -166,3 +166,23 @@ paths:
       responses:
         '200':
           description: 'Got project details.'
+
+  '/api/project/{project}/status':
+    post:
+      summary: 'Get overall translation and proofreading progresses of each target language.'
+      operationId: api.projects.getTranslationStatus
+      externalDocs:
+        url: 'https://support.crowdin.com/api/status/'
+      parameters:
+        -
+          name: project
+          in: path
+          required: true
+        -
+          name: key
+          in: query
+          required: true
+      responses:
+        '200':
+          description: 'Got project translation status.'
+
